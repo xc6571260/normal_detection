@@ -45,17 +45,22 @@
 請先從 GitHub 下載專案所有檔案，再以 Docker 掛載該資料夾作為容器工作目錄，
 container 啟動時會自動以該目錄為基準執行推論！
 
-### 1. 拉取 CUDA 12.4 image
+### 1. 下載專案檔
+```
+git clone https://github.com/xc6571260/normal_detection.git
+```
+
+### 2. 拉取 CUDA 12.4 image
 ```bash
 docker pull nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
 ```
 
-### 2. 建立 image
+### 3. 建立 image
 ```bash
 docker build -t normal-detection:cuda12.4 .
 ```
 
-### 3.1 執行 container(支援CUDA12.4)
+### 4.1 執行 container(支援CUDA12.4)
 ```bash
 docker run --gpus all -it --name normal-detection-container ^
   -v D:/normal_detection:/app ^
@@ -68,7 +73,7 @@ docker run --gpus all -it --name normal-detection-container ^
 - 預設會執行 `main.py`，推論結果會輸出到 `/app/output/`（本機 output 資料夾）
 
 ---
-### 3.2 執行 container(使用CPU推論)
+### 4.2 執行 container(使用CPU推論)
 ```bash
 docker run -it --name normal-detection-container ^
   -v D:/normal_detection:/app ^
