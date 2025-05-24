@@ -42,6 +42,9 @@
 
 ## ⚙️ 部署說明（Docker + CUDA 12.4）
 
+請先從 GitHub 下載專案所有檔案，再以 Docker 掛載該資料夾作為容器工作目錄，
+container 啟動時會自動以該目錄為基準執行推論！
+
 ### 1. 拉取 CUDA 12.4 image
 ```bash
 docker pull nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
