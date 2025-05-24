@@ -2,7 +2,10 @@
 # Normal Detection - Dockerized Inference
 
 本專案提供港區平台設施的自動化缺陷檢測，結合 UAV 影像與深度學習模型。支援 GPU 部署（CUDA 12.4），可一鍵復現分析流程。
-如果顯卡可以支援CUDA12.4版本，則Pull Docker image則可直接使用，若沒有則需要拉下原始碼安裝CPU環境
+
+**⚠️ 本專案同時支援 GPU 與 CPU 執行！**
+- 若顯卡支援 CUDA 12.4，直接使用 Docker 指令即可 GPU 加速。
+- **若沒有 NVIDIA GPU，也能在 CPU 上執行，只需將 Docker 指令移除 `--gpus all` 參數即可（效能較低但能正確推論）。**
 
 ---
 
@@ -46,7 +49,7 @@ docker pull nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
 docker build -t normal-detection:cuda12.4 .
 ```
 
-### 3. 執行 container
+### 3.1 執行 container(支援CUDA12.4)
 ```bash
 docker run --gpus all -it --name normal-detection-container ^
   -v D:/normal_detection:/app ^
@@ -54,7 +57,19 @@ docker run --gpus all -it --name normal-detection-container ^
   normal-detection:cuda12.4
 ```
 
-- `-v`：掛載本機專案資料夾(可自訂)  
+- `-v`：掛載本機專案資料夾(自訂資料夾路徑)    
+- `-w`：設置工作目錄  
+- 預設會執行 `main.py`，推論結果會輸出到 `/app/output/`（本機 output 資料夾）
+
+---
+### 3.2 執行 container(使用CPU推論)
+```bash
+docker run -it --name normal-detection-container ^
+  -v D:/normal_detection:/app ^
+  -w /app ^
+  normal-detection:cuda12.4
+```
+- `-v`：掛載本機專案資料夾(自訂資料夾路徑)  
 - `-w`：設置工作目錄  
 - 預設會執行 `main.py`，推論結果會輸出到 `/app/output/`（本機 output 資料夾）
 
