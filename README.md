@@ -1,5 +1,5 @@
 
-# Normal Detection - Dockerized Inference
+# Normal Detection - 胸牆法線自動化檢測平台
 
 本專案提供港區平台設施的自動化缺陷檢測，結合 UAV 影像與深度學習模型。支援 GPU 部署（CUDA 12.4），可一鍵復現分析流程。
 
