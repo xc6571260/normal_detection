@@ -66,7 +66,7 @@ for fname in os.listdir(input_folder):
         overlay = draw_mask_contour(overlay, smask, color, thickness=4)
 
     # Step 6: Annotate summary result on the image
-    overlay = annotate_result_text(overlay, mask_statuses)
+    overlay = annotate_result_text(overlay, mask_statuses, filename=f"{os.path.splitext(fname)[0]}.jpg")
 
     # Save the final output image
     output_path = os.path.join(output_folder, f"{os.path.splitext(fname)[0]}.jpg")

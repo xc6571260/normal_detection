@@ -18,7 +18,7 @@ def draw_mask_contour(image, mask, color, thickness=3):
     cv2.drawContours(contour_image, contours, -1, color, thickness)
     return contour_image
 
-def annotate_result_text(image, mask_statuses):
+def annotate_result_text(image, mask_statuses, filename=None):
     """
     Adds a large annotation text on the bottom-left of the image
     describing the misalignment detection result.
@@ -42,6 +42,9 @@ def annotate_result_text(image, mask_statuses):
     else:
         text = "No misalignment detected"
         text_color = (0, 200, 0)  # Green
+
+    name_info = f"{filename}" if filename else ""
+    print(f"[INFO] image_name:{name_info} result：{text}")
 
     font_scale = 4
     thickness = 10
