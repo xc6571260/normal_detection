@@ -16,6 +16,7 @@
 - 本區共設置 31 個 POI（定位點），經緯度表位於POI資料夾內。
 - 預測對象：
   胸牆 (POI: 36–67)
+- 成果範例:[INFO] image_name:MAX_1302.jpg result：No misalignment detected
 
 ---
 
