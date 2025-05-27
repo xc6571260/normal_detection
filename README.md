@@ -11,18 +11,17 @@
 
 ## 📍 平台規劃說明
 
-![平台規劃星現 - A區](platform_poi.png)
+![平台規劃星現 - A區](fig/platform_poi.png)
 
 - 本區共設置 31 個 POI（定位點），經緯度表位於POI資料夾內。
-- 預測對象：
-  胸牆 (POI: 36–67)
+- 預測對象：胸牆 (POI: 36–67)
 - 成果範例:[INFO] image_name:MAX_1302.jpg result：No misalignment detected
 
 ---
 
 ## 🛠️ 工作流程
 
-![工作流程圖](workflow.png)
+![工作流程圖](fig/workflow.png)
 
 可直接對單張影像進行推論，需要依照POI點先分配需要預測的影像後存入input資料夾，執行推論檔即可
 (因有調整無人機影像拍攝方式，故在20240729(含)之後的胸牆影像才能夠正確推論)
@@ -41,6 +40,13 @@
 
 ---
 
+## 📊 成果範例
+
+<div align="center">
+  <img src="fig/example.png" width="600"/>
+</div>
+
+---
 ## ⚙️ 部署說明（Docker + CUDA 12.4）
 
 請先從 GitHub 下載專案所有檔案，再以 Docker 掛載該資料夾作為容器工作目錄，
